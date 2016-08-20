@@ -1,0 +1,27 @@
+*{
+	list-style: none;
+	
+	/*list-style-type: none;*/
+}
+
+.news_list{
+	font-size: 16px;
+	line-height: 30px;
+
+}
+.news_list li{
+	padding: 5px;
+	border: 1px #999999 solid;
+
+}
+.news_list_a{
+	color: black;
+	text-decoration: none;
+}
+.news_list_a:hover{
+	color:#0099FF;
+	text-decoration: none;
+
+	
+
+}
