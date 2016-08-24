@@ -142,7 +142,7 @@
 							<span class="icon-unlock icon-4x visible-lg-*"></span>
 							通过编辑内容或关键词规则，快速进行自动回复设置。如具备开发能力，可更灵活地使用该功能。
 							<span><a href="">查看详情</a></span>
-							<a class="btn btn-danger btn-lg" style="margin-left:30px; ">停&nbsp;用</a>
+							<a class="btn btn-danger btn-lg  reply-status" data-status="0" style="margin-left:30px; ">停用</a>
 	
 					</span>
 				</div>
@@ -150,13 +150,16 @@
 
 			</div>
 
-
-			<div class="col-md-12 column" >
+			<div class="rule">
+			<div class="col-md-12 column  " >
 				
 				<div style="margin-left:15px;">
-				 <span class="button  button-border button-rounded  button-primary ">被添加自动回复</span>
-				 <span class="button  button-border button-rounded  button-action ">关键词自动回复</span>	
-				 <span class="button  button-border button-rounded  button-primary ">&nbsp;&nbsp;消息自动回复&nbsp;&nbsp;</span>	
+				 <span class="button  button-border button-rounded  button-action rule_type r_added-reply"  data-type="added-reply" onclick="rule_type(this)" >被添加自动回复
+				 </span>
+				 <span class="button  button-border button-rounded  button-primary rule_type r_key_reply"  data-type="key_reply"  onclick="rule_type(this)" >关键词自动回复
+				 </span>	
+				 <span class="button  button-border button-rounded  button-primary rule_type r_mesg-reply"  data-type="mesg-reply" onclick="rule_type(this)" >&nbsp;&nbsp;消息自动回复&nbsp;&nbsp;
+				 </span>	
 				 	
 				</div>
 
@@ -164,9 +167,7 @@
 
 
 			</div>
-			<span class="btn btn-success " style="margin:10px  30px; ">
-				<i class="icon-plus"></i>&nbsp;&nbsp;添加规则
-			</span>
+			
 <style type="text/css">
 .keywords_rule_item *{
 	line-height:43px;
@@ -182,23 +183,23 @@
 
 }
 
-.keywords_rule_list_bd{
+.keywords_rule_list_bd,#Js_ruleItem_0,.key_reply,.mesg-reply{
 	display: none;
 }
 </style>
-<script type="text/javascript">
 
-</script>
 
-			<div  >
-				
+			<div  class="key_reply rule-type">
+				<span class="btn btn-success add-rule" style="margin:10px  30px; ">
+					<i class="icon-plus "></i>&nbsp;&nbsp;添加规则
+				</span>
 				<ul  id="Js_ruleList" class="keywords_rule_list col-md-12" style="margin:20px; " >
 
 					<li class="keywords_rule_item  " id="Js_ruleItem_0"  >
 						<div class="col-md-12 keywords_rule_list_hd" id="keywords_rule_list_hd" data-id="0" style="height:43px; border:1px #d7d5e0 solid;background:#f4f5f9; cursor: pointer;"  onclick="rule_list_fadeToggle(this);" >
 							<span id="keywords_rule_title">
 								新规则<i class="icon-caret-down pull-right"></i>
-								 <!-- icon-caret-up -->
+							<icon-caret-up>
 							</span>
 						</div>
 
@@ -262,10 +263,10 @@
 						</div>					
 					</li>
 
-					<li class="keywords_rule_item  " id="Js_ruleItem_0"  >
+					<li class="keywords_rule_item  " id="Js_ruleItem_1"  >
 						<div class="col-md-12 keywords_rule_list_hd" id="keywords_rule_list_hd" data-id="1" style="height:43px; border:1px #d7d5e0 solid;background:#f4f5f9; cursor: pointer;"  onclick="rule_list_fadeToggle(this);" >
 							<span id="keywords_rule_title">
-								新规则<i class="icon-caret-down pull-right"></i>
+								规则1：<i class="icon-caret-down pull-right"></i>
 								 <!-- icon-caret-up -->
 							</span>
 						</div>
@@ -331,74 +332,6 @@
 					</li>
 
 
-					<li class="keywords_rule_item  " id="Js_ruleItem_0"  >
-						<div class="col-md-12 keywords_rule_list_hd" id="keywords_rule_list_hd" data-id="2" style="height:43px; border:1px #d7d5e0 solid;background:#f4f5f9; cursor: pointer;"  onclick="rule_list_fadeToggle(this);" >
-							<span id="keywords_rule_title">
-								新规则<i class="icon-caret-down pull-right"></i>
-								 <!-- icon-caret-up -->
-							</span>
-						</div>
-
-						<div class=" keywords_rule_list_bd" id="keywords_rule_list_hd_2">
-							<div class=" col-md-12 " style="height:80px; line-height:80px; border:1px #d7d5e0 solid;">
-								<i class="icon-circle-blank keywords_rule_list_icon " >&nbsp;规则名&nbsp;&nbsp;</i>
-								
-								<input  type="text" class="keywords_rule_name"  style="height:36px;" placeholder="规则名最多40个字" />
-
-							</div>
-
-							<div class=" col-md-12  keywords_tap_hd" style="height:43px; border:1px #d7d5e0 solid;">
-								<i class="icon-circle-blank keywords_rule_list_icon " >&nbsp;关键字&nbsp;&nbsp;</i>
-								<span class="pull-right  js-add-keywords"><a href="javascript:;">添加关键字</a></span>
-							</div>
-
-							<div class=" col-md-12  keywords_tap_bd" style="border:1px #d7d5e0 solid;">
-								<ul>
-									<li>关键字1</li>
-									<li>关键字2</li>
-									<li>关键字3</li>
-									<li>关键字4</li>
-								</ul>	
-							</div>
-
-
-							<div class=" col-md-12  keywords_reply_hd" style="height:43px; border:1px #d7d5e0 solid;">
-								<i class="icon-circle-blank keywords_rule_list_icon " >&nbsp;回复&nbsp;&nbsp;</i>
-								
-									<label class="pull-right">
-										<input type="radio" name="reply_type" class="reply_type " id="reply_type" value="0" checked>随机回复
-									</label>
-									<label class="pull-right">
-										<input type="radio" name="reply_type" class="reply_type " id="reply_type" value="1">
-										回复全部 
-									</label>
-							</div>
-							<div class=" col-md-12  keywords_reply_hd" style="height:43px; border:1px #d7d5e0 solid;">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<i class="icon-pencil icon-large" >&nbsp;&nbsp;&nbsp;&nbsp;</i>
-								<i class=" icon-picture icon-large" >&nbsp;&nbsp;&nbsp;&nbsp;</i>
-								<i class=" icon-film icon-large" >&nbsp;&nbsp;&nbsp;&nbsp;</i>
-								<i class="icon-pencil icon-large" >&nbsp;&nbsp;&nbsp;&nbsp;</i>
-							</div>
-							<div class=" col-md-12  keywords_reply_bd" style="border:1px #d7d5e0 solid;">
-								<ul>
-									<li>关键字1</li>
-									<li>关键字2</li>
-									<li>关键字3</li>
-									<li>关键字4</li>
-								</ul>	
-							</div>
-
-							<div class=" col-md-12 column keywords_rule_submit" style="height:43px; border:1px #d7d5e0 solid;backgroud:#f4f5f9;">
-								<a  class="col-md-8 column"  ></a>
-								<a class="col-md-2 columnb button button-uppercase button-primary " >保存</a>	
-								<a  class="col-md-2  column button button-caution button-primary  "  >删除</a>
-								
-							</div>
-
-						</div>					
-					</li>
-
 				
 
 
@@ -415,20 +348,32 @@
 
 			</div>
 
-			<!-- <div class="col-md-12 column" >
+			<div class="col-md-12 column added-reply rule-type" >
 				
 				
-				 <textarea rows="9" class="form-control" style="margin:15px;" required="required" ></textarea>
+				 <textarea rows="9" class="form-control" style="margin:15px;" required="required" >被添加自动回复</textarea>
 				 <span class="button  button-border pull-left"  style="margin-left:15px;color:">&nbsp;保&nbsp;&nbsp;存&nbsp;</span>
 				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				 <span class="button  button-border ">删除回复</span>	
 
 
-			</div> -->
+			</div>
+
+
+			<div class="col-md-12 column mesg-reply rule-type" >
+				
+				
+				 <textarea rows="9" class="form-control" style="margin:15px;" required="required" >消息自动回复</textarea>
+				 <span class="button  button-border pull-left"  style="margin-left:15px;color:">&nbsp;保&nbsp;&nbsp;存&nbsp;</span>
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+				 <span class="button  button-border ">删除回复</span>	
+
+
+			</div>
 
 
 
-
+			</div>
 		</div>
 
 
